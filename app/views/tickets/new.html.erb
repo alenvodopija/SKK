@@ -23,8 +23,8 @@
 
 
             <div class="form-group  mb-3">
-                <%= f.label :card_number, "Card number" %><br/>
-                    <%= f.text_field :card_number, class: "form-control" %>
+                <%= f.label :card_number, "Card number (14 digit card number)" %><br/>
+                    <%= f.text_field :card_number, class: "form-control"%>
             </div>
             <%=f.hidden_field :offer_id, value: @offer.id%>
                 <%=f.hidden_field :user_id, value: @user.id%>
