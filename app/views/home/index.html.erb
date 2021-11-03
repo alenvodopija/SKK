@@ -18,27 +18,19 @@
                 <table class="table">
                     <thead>
                         <tr class="simple-head">
-                            <th width="19">
-                                <div class="bg-white h-100 w-100"> </div>
-                            </th>
-                            <th width="19%">
-                                <div class="d-flex justify-content-between align-items-center mb-2"> <span class="d-block text-custom-truncate ml-1">Mjesto polaska</span> </div>
-                            </th>
-                            <th width="19%">
-                                <div class="d-flex justify-content-between align-items-center mb-2"> <span class="d-block text-custom-truncate ml-1">Mjesto dolaska</span> </div>
+                            <%= render(ColumnNameComponent.new(text: "Airline")) %>
+                            <%= render(ColumnNameComponent.new(text: "Place of departure")) %>             
+                            <%= render(ColumnNameComponent.new(text: "Place of arrival ")) %>
+                            <%= render(ColumnNameComponent.new(text: "Time of departure")) %>
+                            <%= render(ColumnNameComponent.new(text: "Time of arrival")) %>
+                            <%= render(ColumnNameComponent.new(text: "Tickets left")) %>
+                            <%= render(ColumnNameComponent.new(text: "a")) %>
 
-                            </th>
-                            <th width="19%">
-                                <div class="d-flex justify-content-between align-items-center mb-2"> <span class="d-block text-custom-truncate ml-1">Vrijeme polaska</span> </div>
-
-                            </th>
-                            <th width="19%">
-                                <div class="d-flex justify-content-between align-items-center mb-2"> <span class="d-block text-custom-truncate ml-1">Vrijeme dolaska</span> </div>
-
-                            </th>
                         </tr>
                     </thead>
                     <tbody>
+
+                        <% if @offers.length > 0 %>
 
                         <% @offers.each do |offer| %>
 
@@ -59,6 +51,11 @@
                                     <%= offer.end_time.strftime("%m/%d/%Y %H:%M") %>
                                 </td>
                                 <td class="text-center">
+                                    <%= offer.number_of_seats %>
+                                </td>
+
+
+                                <td class="text-center">
                                     <a href="<% if !logged_in? %> 
                                                 /login
                                                 <% else %> 
@@ -73,6 +70,17 @@
                             </tr>
 
                             <% end %>
+
+
+                        <% else %>
+
+                            <div class="h4 mb-3">
+                                None of the tickets are curently available.
+                            </div>
+
+                            
+                        <% end %>
+
 
                     </tbody>
                 </table>

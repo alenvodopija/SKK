@@ -15,11 +15,22 @@ class TicketsController < ApplicationController
       
       @ticket_params = params.require(:offer).permit(:offer_id,:user_id)
       @ticket = Ticket.new(@ticket_params)
-      if @ticket.save
-        flash[:success] = "Ticket bought."
+      @offer = Offer.find(@ticket.offer_id)
+
+      if @offer.number_of_seats < 1
         redirect_to root_path
-    else
+        flash[:warning] = "No seats left."
+
+       elsif @ticket.save 
+         @offer.number_of_seats -=1
+          @offer.save
+         flash[:success] = "Ticekt bought"
+         redirect_to root_path
+
+       else
          render 'new'
+      end
+      
     end
-    end
+
 end

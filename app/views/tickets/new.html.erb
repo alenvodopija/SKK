@@ -8,23 +8,17 @@
 
             <div class="form-group  mb-3">
                 <%= f.label :first_name, "First Name:"%><br/>
-                    <div class=" fw-bolder form-control-lg">
-                        <%= @user.first_name %>
-                    </div>
+                  <%= render(InfoLineComponent.new(text: @user.first_name)) %> 
             </div>
 
             <div class="form-group  mb-3">
                 <%= f.label :last_name, "Last Name:" %><br/>
-                    <div class=" fw-bolder form-control-lg">
-                        <%= @user.last_name %>
-                    </div>
+                   <%= render(InfoLineComponent.new(text: @user.last_name)) %> 
             </div>
 
             <div class="form-group  mb-3">
                 <%= f.label :email, "Email:" %><br/>
-                    <div class=" fw-bolder form-control-lg">
-                        <%= @user.email %>
-                    </div>
+                   <%= render(InfoLineComponent.new(text: @user.email)) %> 
             </div>
 
 

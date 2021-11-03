@@ -17,13 +17,9 @@
                                     <li class="nav-item active">
                                         <%= link_to "Log out", logout_path, method: :delete, :class => "nav-link"%>
                                             <% end %>
-
-
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link" href="#">Your tickets</a>
-
-
 
                 </ul>
             </div>
@@ -34,7 +30,7 @@
 
 <% flash.each do |type, msg| %>
     <div class="w-50 mt-lg-5 fixed-top">
-        <div class="alert alert-<%=type%> w-25 text-center mt-2" id="alert">
+        <div class="notification alert alert-<%=type%> w-25 text-center mt-2" id="alert">
             <%= msg %>
         </div>
     </div>

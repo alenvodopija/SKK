@@ -12,9 +12,13 @@ import "../stylesheets/application"
 
 Rails.start()
 ActiveStorage.start()
+hideNotice();
 
-$(document).on('turbolinks:load', function() {
-    setTimeout(function() {
-        $('.alert').fadeOut();
-    }, 3000);
-})
+
+
+
+function hideNotice() {
+    setInterval(function() {
+        document.querySelector('.notification').style.display = "none";
+    }, 5000);
+}
