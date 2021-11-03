@@ -1,0 +1,43 @@
+<%= render 'layouts/header' %>
+
+    <div class="container-sm  w-25 border border-4 rounded-3 p-5 mb-lg-5 mt-5">
+        <h1 class="col-5">Sign Up</h1>
+        <hr>
+
+        <%= form_with(model: @user, local: true, url: signup_path) do |f| %>
+
+            <div class="form-group  mb-3">
+                <%= f.label :first_name, "First Name"%><br/>
+                    <%= f.text_field :first_name, class: "form-control" %>
+            </div>
+
+            <div class="form-group  mb-3">
+                <%= f.label :last_name, "Last Name" %><br/>
+                    <%= f.text_field :last_name, class: "form-control" %>
+            </div>
+
+            <div class="form-group  mb-3">
+                <%= f.label :email, "Email" %><br/>
+                    <%= f.email_field :email, class: "form-control" %>
+            </div>
+
+            <div class="form-group  mb-3">
+                <%= f.label :username , "Username"%><br/>
+                    <%= f.text_field :username, class: "form-control" %>
+            </div>
+
+            <div class="form-group  mb-3">
+                <%= f.label :password, "Password" %><br/>
+                    <%= f.password_field :password, class: "form-control" %>
+            </div>
+
+            <div class="form-group  mb-3">
+                <%= f.submit "Sign up", class: "btn btn-primary" %>
+            </div>
+
+            <% end %>
+    </div>
+
+    <div class="fixed-bottom">
+        <%= render 'layouts/footer' %>
+    </div>
